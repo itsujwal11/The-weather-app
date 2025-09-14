@@ -1,0 +1,63 @@
+body {
+    background: linear-gradient(to bottom, #4a90e2, #007aff);
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    max-width: 400px;
+}
+.card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+}
+.main-card {
+    min-height: 200px;
+}
+.temp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+#weather-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+input, button {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+}
+select {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+}
+select option {
+  background: #4a90e2;
+  color: white;
+}
