@@ -3,6 +3,7 @@ const apiBase = 'https://api.openweathermap.org/data/2.5/weather';
 const cityInput = document.getElementById('cityInput');
 const useLocationButton = document.getElementById('useLocationButton');
 const defaultCitySelect = document.getElementById('defaultCitySelect');
+const searchButton = document.getElementById('searchButton'); 
 
 async function getWeather(city) {
   try {
@@ -25,7 +26,6 @@ async function getWeatherByCoords(lat, lon) {
     alert(error.message);
   }
 }
-
 function updateWeather(data) {
   document.getElementById('location').textContent = `${data.name}, ${data.sys.country}`;
   document.getElementById('condition').textContent = data.weather[0].description;
@@ -34,23 +34,29 @@ function updateWeather(data) {
   document.getElementById('feels-like').textContent = `${Math.round(data.main.feels_like)}°`;
   document.getElementById('feels-like-detail').textContent = `${Math.round(data.main.feels_like)}°`;
   document.getElementById('humidity-detail').textContent = `${data.main.humidity}%`;
+  document.getElementById('wind-speed-detail').textContent = `${Math.round(data.wind.speed * 3.6)} km/h`;
+  document.getElementById('visibility-detail').textContent = `${Math.round(data.visibility / 1000)} km`;
 }
 
-// Load default city on page load and when selected
 window.onload = () => getWeather(defaultCitySelect.value);
 defaultCitySelect.addEventListener('change', () => {
   getWeather(defaultCitySelect.value);
 });
 
-// Search on Enter
 cityInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter' && cityInput.value) {
     getWeather(cityInput.value);
     cityInput.value = '';
   }
 });
-
-// Location button
+searchButton.addEventListener('click', () => {
+  if (cityInput.value) {
+    getWeather(cityInput.value);
+    cityInput.value = '';
+  } else {
+    alert('Please enter a city name');
+  }
+});
 useLocationButton.addEventListener('click', () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(

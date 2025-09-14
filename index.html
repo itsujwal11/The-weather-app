@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beautiful Weather App</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Beautiful Weather App</h1>
@@ -17,6 +17,7 @@
         <option value="Tokyo">Tokyo</option>
         <option value="Paris">Paris</option>
       </select>
+      <button type="button" id="searchButton">Search</button>
       <button type="button" id="useLocationButton">Use a current location</button>
     </div>
     <div class="card main-card">
@@ -35,6 +36,14 @@
     <div class="card">
       <p>Humidity</p>
       <h3 id="humidity-detail"></h3>
+    </div>
+    <div class="card">
+      <p>Wind Speed</p>
+      <h3 id="wind-speed-detail"></h3>
+    </div>
+    <div class="card">
+      <p>Visibility</p>
+      <h3 id="visibility-detail"></h3>
     </div>
   </div>
   <script src="script.js"></script>
